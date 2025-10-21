@@ -66,18 +66,18 @@
 
   <header>
     <div class="logo-container">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Logo_IUT_Dijon_Auxerre.png" class="logo" alt="Logo IUT Dijon Dole">
+      <img src="iut.png" class="logo" alt="Logo IUT Dole">
       <h1>Journée Portes Ouvertes - IUT de Dole</h1>
     </div>
   </header>
 
   <div class="formations">
     <div>
-      <img src="https://www.iutdijon.u-bourgogne.fr/images/iut/dole/but_informatique.jpg" alt="Formation Informatique">
-      <p>BUT Informatique</p>
+      <img src="PEC.png" alt=" Packaging Emballage Conditionnement">
+      <p>BUT Packaging Emballage Conditionnement</p>
     </div>
     <div>
-      <img src="https://www.iutdijon.u-bourgogne.fr/images/iut/dole/but_science_donnees.jpg" alt="Formation Science des Données">
+      <img src="sd.png" alt="Formation Science des Données">
       <p>BUT Science des Données</p>
     </div>
   </div>
@@ -110,35 +110,26 @@
   </form>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycby52TuhuLWAdJekRZVGxWfI2YJ7z0_nrL8IJROMhlR_IcUisZdP8oo3RnGIVM5bChGRDg/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzfOX-fKeXQHWgTcp-4hw7QbVVKNzQyQWQ76lnAB79-nTi3be27RG9ZKnUtM-PTZ9EJKg/exec";
+  const form = document.getElementById("jpoForm");
 
-    const form = document.getElementById("jpoForm");
-
-   form.addEventListener("submit", e => {
-  e.preventDefault();
-  const data = Object.fromEntries(new FormData(form));
-  fetch(scriptURL, {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: { "Content-Type": "application/json" }
-  })
-  .then(response => response.json())
-  .then(response => {
-    if(response.result === "success") {
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    fetch(scriptURL, {
+      method: "POST",
+      body: new FormData(form)
+    })
+    .then(response => {
       document.getElementById("message").innerText = "✅ Merci pour votre participation !";
       form.reset();
-    } else {
-      document.getElementById("message").innerText = "❌ Erreur: " + response.message;
-      console.log(response.message);
-    }
-  })
-  .catch(error => {
-    document.getElementById("message").innerText = "❌ Erreur lors de l'envoi: " + error;
-    console.error(error);
+    })
+    .catch(error => {
+      document.getElementById("message").innerText = "❌ Erreur lors de l'envoi.";
+      console.error("Erreur :", error);
+    });
   });
-});
+</script>
 
-  </script>
 
 </body>
 </html>
