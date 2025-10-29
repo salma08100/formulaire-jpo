@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulaire JPO - IUT de Dole</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #f5f7fa, #c3cfe2);
+      margin: 0;
+      text-align: center;
+    }
+    header {
+      background-color: #0055a4;
+      color: white;
+      padding: 25px;
+    }
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      align-items: center;
+    }
+    .logo {
+      height: 80px;
+    }
+    form {
+      background-color: white;
+      width: 420px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    }
+    input, select, button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+    button {
+      background-color: #0055a4;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0077cc;
+    }
+    .formations {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 40px auto 10px auto;
+    }
+    .formations img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background-color: white;
+      padding: 8px;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="iut.png" class="logo" alt="Logo IUT Dole">
+      <h1>Journée Portes Ouvertes - IUT de Dole</h1>
+    </div>
+  </header>
+
+  <div class="formations">
+    <div>
+      <img src="PEC.PNG" alt="Packaging Emballage Conditionnement">
+    </div>
+    <div>
+      <img src="sd.png" alt="Formation Science des Données">
+    </div>
+  </div>
+
+
+  <form method="POST" action="http://localhost:8000">
+    <h2>Partagez votre profil 👋</h2>
+
+    <label for="age">Votre âge :</label>
+    <select id="age" name="age" required>
+      <option value="">-- Choisissez votre tranche d'âge --</option>
+      <option value="Moins de 16 ans">Moins de 16 ans</option>
+      <option value="16 - 18 ans">16 - 18 ans</option>
+      <option value="19 - 21 ans">19 - 21 ans</option>
+      <option value="22 ans et plus">22 ans et plus</option>
+    </select>
+
+    <label for="formation">Formation qui vous intéresse :</label>
+    <select id="formation" name="formation" required>
+      <option value="">-- Choisissez une formation --</option>
+      <option value="BUT Packaging Emballage Conditionnement">BUT Packaging Emballage Conditionnement</option>
+      <option value="BUT Science des Données">BUT Science des Données</option>
+    </select>
+
+    <label for="origine">Comment avez-vous entendu parler de la JPO ?</label>
+    <select id="origine" name="origine" required>
+      <option value="">-- Sélectionnez une option --</option>
+      <option value="Réseaux sociaux">Réseaux sociaux</option>
+      <option value="Site web de l'IUT">Site web de l'IUT</option>
+      <option value="Professeur / lycée">Professeur / lycée</option>
+      <option value="Famille / amis">Famille / amis</option>
+      <option value="Autre">Autre</option>
+    </select>
+
+    <button type="submit">Envoyer</button>
+  </form>
+
+</body>
+</html>
